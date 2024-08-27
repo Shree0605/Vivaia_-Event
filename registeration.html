@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/css/normalize.min.css">
+</head>
+<body>
+
+    <!-- <header>
+        <h1>Event Title</h1>
+    </header>
+
+    <section id="event-details">
+        <div class="tabs">
+            <button class="tab-button active" data-tab="schedule">Schedule</button>
+            <button class="tab-button" data-tab="speakers">Speakers</button>
+            <button class="tab-button" data-tab="tickets">Tickets</button>
+        </div>
+
+        <div class="tab-content active" id="schedule">
+            <h2>Event Schedule</h2>
+            <p>Details about the schedule.</p>
+        </div>
+        <div class="tab-content" id="speakers">
+            <h2>Event Speakers</h2>
+            <p>Details about the speakers.</p>
+        </div>
+        <div class="tab-content" id="tickets">
+            <h2>Ticket Options</h2>
+            <p>Details about ticket pricing and options.</p>
+        </div>
+    </section> -->
+    <header class="transparent-header">
+        <div class="container">
+            <h1>Serenité</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Gallery</a></li>
+                    <li><a href="#about">Registration</a></li>
+                    <li><a href="#contact">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+     <section>
+        <img src="bg.jpg" id="bg">
+        <img src="moon.png" id="moon">
+        <img src="mountain.png" id="mountain">
+        <img src="road.png" id="road">
+        <h2 id="text">Moon light</h2>
+     </section>
+      
+     <div class="form-container">
+        <form action="#" method="post" class="registration-form" onsubmit="showNotification(event)">
+            <h2>Register for an Event</h2>
+
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+
+            <label for="event">Select Event</label>
+            <select id="event" name="event" required>
+                <option value="" disabled selected>Select Event</option>
+                <option value="wedding">Wedding</option>
+                <option value="corporate">Corporate Event</option>
+                <option value="birthday">Birthday Party</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="attendees">Number of Attendees</label>
+            <input type="number" id="attendees" name="attendees" placeholder="Number of Attendees" min="1" required>
+
+            <label for="event_date">Event Date</label>
+            <input type="date" id="event_date" name="event_date" required>
+            <label for="comments">Comments or Special Requests</label>
+            <textarea id="comments" name="comments" placeholder="Any special requests or comments?" rows="4"></textarea>
+
+            <button type="submit">Register</button>
+        </form>
+        <div id="notification" class="notification">Registration submitted successfully!</div>
+    </div>
+
+     <script type="text/javascript">
+        let bg = document.getElementById("bg");
+        let moon = document.getElementById("moon");
+        let mountain = document.getElementById("mountain");
+        let road = document.getElementById("road");
+        let text = document.getElementById("text");
+
+        window.addEventListener('scroll', function(){
+            var value= window.scrollY;
+
+            bg.style.top = value*0.5 + 'px';
+            moon.style.left = -value * 0.5 + 'px';
+            mountain.style.top = -value*0.15 + 'px';
+            road.style.top = value*0.15 + 'px';
+            text.style.top = value * 1 + 'px';
+        })
+     </script>
+     <script>
+        function showNotification(event) {
+            event.preventDefault();
+            const notification = document.getElementById('notification');
+            notification.classList.add('show');
+            setTimeout(() => notification.classList.remove('show'), 3000);
+        }
+    </script>
+
+</body>
+</html>
